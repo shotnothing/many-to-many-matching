@@ -1,13 +1,3 @@
-# Many-to-many Matching
-Package to conduct matching for an extension of the stable marriage problem to many-to-many matchings.
-
-Requirements:
-- pandas
-- numpy
-- munkres
-
-Example usage:
-```python
 import pandas as pd
 import numpy as np
 import manytomany
@@ -27,8 +17,10 @@ mentor_df = pd.DataFrame({
 
 # 2. Define similarity functions
 def similarity_mentee_mentor_group(mentors: list, mentee: pd.Series):
-    '''You can define any similarity function you want, as long as you return a number (you might be able to return other comparable objects but I haven't tested it). Smaller is more similar.
+    '''You can define any similarity function you want, as long as you return a number (you might be able to return other comparable objects but I haven't tested it).
     
+    Smaller is more similar.
+
     Args:
         mentors: list of pd.Series, each representing a mentor
         mentee: pd.Series, representing a single mentee
@@ -45,7 +37,9 @@ def similarity_mentee_mentor_group(mentors: list, mentee: pd.Series):
     return acc
 
 def similarity_mentor_mentor(mentor1: pd.Series, mentor2: pd.Series):
-    '''Again, you can define any similarity function you want, as long as you return a number. Smaller is more similar.
+    '''Again, you can define any similarity function you want, as long as you return a number.
+    
+    Smaller is more similar.
     
     Args:
         mentor1: pd.Series, representing a single mentor
@@ -65,4 +59,3 @@ assignments_by_mentor, assignments_by_mentee = manytomany.match(
 
 print('Assignments by mentor:\n', assignments_by_mentor)
 print('Assignments by mentee:\n', assignments_by_mentee)
-```
